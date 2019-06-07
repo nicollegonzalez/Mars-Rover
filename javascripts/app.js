@@ -45,7 +45,7 @@ function turnRight(rover){
 }
 
 function moveForward(rover){
-  console.log("moveForward was called");
+  console.log("moveForward was called!");
   rover.travelLog.push(rover.position());
     switch(rover.direction){
       case "N":
@@ -54,7 +54,6 @@ function moveForward(rover){
       }
       else{
         console.log("At the end of the grid rover cannot move forward.");
-        console.log(rover.position());
       }
       break;
     case "S":
@@ -63,7 +62,6 @@ function moveForward(rover){
       }
       else{
         console.log("At the end of the grid rover cannot move forward.")
-        console.log(rover.position());
       }
       break;
     case "W":
@@ -72,7 +70,6 @@ function moveForward(rover){
       }
       else {
         console.log("At the end of the grid rover cannot move forward.")
-        console.log(rover.position());
       }
       break;
     case "E":
@@ -81,51 +78,48 @@ function moveForward(rover){
       }
       else {
         console.log("At the end of the grid rover cannot move forward.")
-        console.log(rover.position());
       }
     }
+    console.log("Rover cordinates: " + rover.position());
 }
 
 function moveBackward(rover){
-  console.log("moveBackward was called")
+  console.log("moveBackward was called!")
   rover.travelLog.push(rover.position());
   switch(rover.direction){
-  case "N":
-  if (rover.y < 9){
+    case "N":
+    if (rover.y < 9){
     rover.y += 1;
+     }
+    else{
+      console.log("At the end of the grid rover cannot move backward.")
+    }
+    break;
+    case "S":
+    if (rover.y > 0){
+      rover.y -= 1;
+    } 
+    else{
+      console.log("At the end of the grid rover cannot move backward.")
+    }
+    break;
+  case "W":
+    if (rover.x < 9) {
+      rover.x += 1;
+    }
+    else {
+      console.log("At the end of the grid rover cannot move forward.")
+    }
+    break;
+  case "E":
+    if (rover.x > 0) {
+      rover.x -= 1;
+    }
+    else {
+      console.log("At the end of the grid rover cannot move forward.")
+    }
   }
-  else{
-    console.log("At the end of the grid rover cannot move backward.");
-    console.log(rover.position());
-  }
-  break;
-case "S":
-  if (rover.y > 0){
-    rover.y -= 1;
-  }
-  else{
-    console.log("At the end of the grid rover cannot move backward.")
-    console.log(rover.position());
-  }
-  break;
-case "W":
-  if (rover.x < 9) {
-    rover.x += 1;
-  }
-  else {
-    console.log("At the end of the grid rover cannot move forward.")
-    console.log(rover.position());
-  }
-  break;
-case "E":
-  if (rover.x > 0) {
-    rover.x -= 1;
-  }
-  else {
-    console.log("At the end of the grid rover cannot move forward.")
-    console.log(rover.position());
-  }
-}
+  console.log("Rover cordinates: " + rover.position());
 }
 
 function command(str) {
@@ -149,4 +143,7 @@ function command(str) {
       break;
     }
   }
+  console.log("Rover Position: " + rover.position());
+  console.log("Rover Travel Log:" + rover.travelLog);
+  console.log("Rover Direction: " + rover.direction);
 }
